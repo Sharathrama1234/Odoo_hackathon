@@ -178,8 +178,7 @@ SESSION_SECRET=your_session_secret_here
 Check out the live demo of EcoFinds in action:
 
 <video width="640" height="360" controls>
-  <source src="https://github.com/user-attachments/assets/d1b734d4-6227-43ab-9565-357d18beff5e" type="video/mp4">
-  Your browser does not support the video tag.
+  <source src="https://github.com/user-attachments/assets/d1b734d4-6227-43ab-9565-357d18beff5e" type="video/webm">
 </video>
 
 This video showcases the core features of EcoFinds, such as user authentication, product management, shopping experience, and the user dashboard.
