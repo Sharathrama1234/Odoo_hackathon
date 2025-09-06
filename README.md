@@ -2,6 +2,26 @@
 
 EcoFinds is a modern web application that connects buyers and sellers in a sustainable second-hand marketplace. Built with Node.js, Express, MongoDB, and EJS, it provides a comprehensive platform for trading pre-owned goods while promoting environmental sustainability.
 
+## 🎬 Demo Video
+
+Check out the live demo of EcoFinds in action:
+
+
+https://github.com/user-attachments/assets/45a5ae0c-6e4a-47bd-b966-257f3524e109
+
+
+
+
+
+
+
+<video width="640" height="360" controls>
+  <source src="https://github.com/user-attachments/assets/d1b734d4-6227-43ab-9565-357d18beff5e" type="video/webm">
+ 
+</video>
+
+This video showcases the core features of EcoFinds, such as user authentication, product management, shopping experience, and the user dashboard.
+
 ## Features
 
 ### 🔐 User Authentication
@@ -173,25 +193,7 @@ PORT=3000
 MONGODB_URI=mongodb://localhost:27017/ecofinds
 SESSION_SECRET=your_session_secret_here
 ```
-## 🎬 Demo Video
 
-Check out the live demo of EcoFinds in action:
-
-
-https://github.com/user-attachments/assets/45a5ae0c-6e4a-47bd-b966-257f3524e109
-
-
-
-
-
-
-
-<video width="640" height="360" controls>
-  <source src="https://github.com/user-attachments/assets/d1b734d4-6227-43ab-9565-357d18beff5e" type="video/webm">
- 
-</video>
-
-This video showcases the core features of EcoFinds, such as user authentication, product management, shopping experience, and the user dashboard.
 
 ## License
 
