@@ -176,9 +176,9 @@ SESSION_SECRET=your_session_secret_here
 ## 🎬 Demo Video
 
 Check out the live demo of EcoFinds in action:
-
+https://github.com/user-attachments/assets/d1b734d4-6227-43ab-9565-357d18beff5e
 <video width="640" height="360" controls>
-  <source src="https://raw.githubusercontent.com/user/repo/main/assets/d1b734d4-6227-43ab-9565-357d18beff5e" type="video/webm">
+  <source src="https://github.com/user-attachments/assets/d1b734d4-6227-43ab-9565-357d18beff5e" type="video/webm">
   Your browser does not support the video tag.
 </video>
 
