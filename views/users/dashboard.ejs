@@ -1,0 +1,115 @@
+<%- include('../partials/header') %>
+
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h1>
+            <i class="fas fa-user"></i>
+            User Dashboard
+        </h1>
+        <p>Manage your profile and account settings</p>
+    </div>
+
+    <div class="dashboard-content">
+        <div class="profile-section">
+            <div class="profile-card">
+                <div class="profile-avatar">
+                    <img src="<%= user.profileImage %>" alt="Profile Picture">
+                    <div class="avatar-overlay">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h2><%= user.username %></h2>
+                    <p><%= user.email %></p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-number"><%= user.cart.length %></span>
+                            <span class="stat-label">Cart Items</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number"><%= user.purchases.length %></span>
+                            <span class="stat-label">Purchases</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form action="/users/profile?_method=PUT" method="POST" class="profile-form">
+            <div class="form-section">
+                <h3>Personal Information</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" value="<%= user.firstName || '' %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" value="<%= user.lastName || '' %>">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" value="<%= user.phone || '' %>">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Address Information</h3>
+                
+                <div class="form-group">
+                    <label for="street">Street Address</label>
+                    <input type="text" id="street" name="street" value="<%= user.address && user.address.street || '' %>">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" value="<%= user.address && user.address.city || '' %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" value="<%= user.address && user.address.state || '' %>">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="zipCode">ZIP Code</label>
+                        <input type="text" id="zipCode" name="zipCode" value="<%= user.address && user.address.zipCode || '' %>">
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" name="country" value="<%= user.address && user.address.country || '' %>">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i>
+                    Update Profile
+                </button>
+            </div>
+        </form>
+
+        <div class="account-section">
+            <h3>Account Information</h3>
+            <div class="account-info">
+                <div class="info-item">
+                    <strong>Username:</strong> <%= user.username %>
+                </div>
+                <div class="info-item">
+                    <strong>Email:</strong> <%= user.email %>
+                </div>
+                <div class="info-item">
+                    <strong>Member since:</strong> <%= new Date(user.createdAt).toLocaleDateString() %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

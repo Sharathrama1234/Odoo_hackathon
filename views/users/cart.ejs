@@ -1,0 +1,106 @@
+<%- include('../partials/header') %>
+
+<div class="cart-container">
+    <div class="cart-header">
+        <h1>
+            <i class="fas fa-shopping-cart"></i>
+            Shopping Cart
+        </h1>
+        <p>Review your selected items</p>
+    </div>
+
+    <% if (cartItems.length === 0) { %>
+        <div class="empty-cart">
+            <i class="fas fa-shopping-cart"></i>
+            <h3>Your cart is empty</h3>
+            <p>Discover amazing second-hand finds and add them to your cart</p>
+            <a href="/products" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+                Browse Products
+            </a>
+        </div>
+    <% } else { %>
+        <div class="cart-content">
+            <div class="cart-items">
+                <% cartItems.forEach(item => { %>
+                    <div class="cart-item">
+                        <div class="item-image">
+                            <img src="<%= item.product.images[0] %>" alt="<%= item.product.title %>">
+                        </div>
+                        <div class="item-details">
+                            <h3>
+                                <a href="/products/<%= item.product._id %>"><%= item.product.title %></a>
+                            </h3>
+                            <p class="item-seller">
+                                <i class="fas fa-user"></i>
+                                Seller: <%= item.product.seller.username %>
+                            </p>
+                            <p class="item-category">
+                                <i class="fas fa-tag"></i>
+                                <%= item.product.category %>
+                            </p>
+                            <div class="item-price">
+                                $<%= item.product.price.toFixed(2) %>
+                            </div>
+                        </div>
+                        <div class="item-quantity">
+                            <form action="/users/cart/<%= item.product._id %>?_method=PUT" method="POST" class="quantity-form">
+                                <label for="quantity-<%= item.product._id %>">Quantity:</label>
+                                <input type="number" 
+                                       id="quantity-<%= item.product._id %>" 
+                                       name="quantity" 
+                                       value="<%= item.quantity %>" 
+                                       min="1" 
+                                       max="10"
+                                       onchange="this.form.submit()">
+                            </form>
+                        </div>
+                        <div class="item-total">
+                            $<%= (item.product.price * item.quantity).toFixed(2) %>
+                        </div>
+                        <div class="item-actions">
+                            <form action="/users/cart/<%= item.product._id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Remove this item from cart?')">
+                                    <i class="fas fa-trash"></i>
+                                    Remove
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+
+            <div class="cart-summary">
+                <div class="summary-card">
+                    <h3>Order Summary</h3>
+                    <div class="summary-line">
+                        <span>Items (<%= cartItems.length %>):</span>
+                        <span>$<%= total.toFixed(2) %></span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Shipping:</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="summary-line total">
+                        <span>Total:</span>
+                        <span>$<%= total.toFixed(2) %></span>
+                    </div>
+                    
+                    <form action="/users/purchase" method="POST" class="checkout-form">
+                        <button type="submit" class="btn btn-primary btn-block" onclick="return confirm('Proceed with purchase?')">
+                            <i class="fas fa-credit-card"></i>
+                            Proceed to Checkout
+                        </button>
+                    </form>
+                    
+                    <a href="/products" class="btn btn-secondary btn-block">
+                        <i class="fas fa-arrow-left"></i>
+                        Continue Shopping
+                    </a>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>

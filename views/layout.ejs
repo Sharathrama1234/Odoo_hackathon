@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <% if (user) { %>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="/products">
+                        <i class="fas fa-leaf"></i>
+                        EcoFinds
+                    </a>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="/products" class="nav-link">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="/products/new" class="nav-link">
+                        <i class="fas fa-plus"></i> Add Product
+                    </a>
+                    <a href="/products/my/listings" class="nav-link">
+                        <i class="fas fa-list"></i> My Listings
+                    </a>
+                    <a href="/users/cart" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i> Cart
+                    </a>
+                    <a href="/users/purchases" class="nav-link">
+                        <i class="fas fa-history"></i> Purchases
+                    </a>
+                    <a href="/users/dashboard" class="nav-link">
+                        <i class="fas fa-user"></i> Dashboard
+                    </a>
+                    <form action="/auth/logout" method="POST" class="logout-form">
+                        <button type="submit" class="nav-link logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    <% } %>
+
+    <main class="main-content">
+        <% if (messages && messages.error) { %>
+            <div class="alert alert-error">
+                <i class="fas fa-exclamation-circle"></i>
+                <%= messages.error %>
+            </div>
+        <% } %>
+        
+        <% if (messages && messages.success) { %>
+            <div class="alert alert-success">
+                <i class="fas fa-check-circle"></i>
+                <%= messages.success %>
+            </div>
+        <% } %>
+
+        <%- content %>
+    </main>
+
+    <% if (user) { %>
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2025 EcoFinds. Empowering sustainable consumption.</p>
+            </div>
+        </footer>
+    <% } %>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

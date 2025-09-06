@@ -1,0 +1,61 @@
+<%- include('../partials/header') %>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <div class="brand-logo">
+                <i class="fas fa-leaf"></i>
+                <h1>EcoFinds</h1>
+            </div>
+            <p class="auth-subtitle">Join the sustainable marketplace</p>
+        </div>
+
+        <form action="/auth/register" method="POST" class="auth-form">
+            <h2>Create Account</h2>
+            
+            <div class="form-group">
+                <label for="username">Username</label>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" name="username" required placeholder="Choose a username">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" required placeholder="Create a password">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-user-plus"></i>
+                Create Account
+            </button>
+
+            <div class="auth-links">
+                <p>Already have an account? <a href="/auth/login" class="login-link">Login here</a></p>
+                <p class="help-text">Join thousands of users buying and selling sustainably!</p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

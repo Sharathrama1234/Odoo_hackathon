@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <div class="brand-logo">
+                <i class="fas fa-leaf"></i>
+                <h1>EcoFinds</h1>
+            </div>
+            <p class="auth-subtitle">Sustainable Second-Hand Marketplace</p>
+        </div>
+
+        <form action="/auth/login" method="POST" class="auth-form">
+            <h2>Welcome Back</h2>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-sign-in-alt"></i>
+                Login
+            </button>
+
+            <div class="auth-links">
+                <p>Don't have an account? <a href="/auth/register" class="register-link">Create one here</a></p>
+                <p class="help-text">New to EcoFinds? Join our sustainable marketplace community!</p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

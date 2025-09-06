@@ -1,0 +1,81 @@
+<%- include('../partials/header') %>
+
+<div class="purchases-container">
+    <div class="purchases-header">
+        <h1>
+            <i class="fas fa-history"></i>
+            Previous Purchases
+        </h1>
+        <p>Your purchase history</p>
+    </div>
+
+    <% if (purchases.length === 0) { %>
+        <div class="no-purchases">
+            <i class="fas fa-receipt"></i>
+            <h3>No purchases yet</h3>
+            <p>Start shopping to see your purchase history here</p>
+            <a href="/products" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+                Browse Products
+            </a>
+        </div>
+    <% } else { %>
+        <div class="purchases-list">
+            <% purchases.forEach(purchase => { %>
+                <div class="purchase-item">
+                    <div class="purchase-image">
+                        <img src="<%= purchase.product.images[0] %>" alt="<%= purchase.product.title %>">
+                    </div>
+                    <div class="purchase-details">
+                        <h3 class="purchase-title">
+                            <a href="/products/<%= purchase.product._id %>"><%= purchase.product.title %></a>
+                        </h3>
+                        <div class="purchase-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>Purchased on <%= new Date(purchase.purchaseDate).toLocaleDateString() %></span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-user"></i>
+                                <span>Seller: <%= purchase.product.seller.username %></span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tag"></i>
+                                <span><%= purchase.product.category %></span>
+                            </div>
+                        </div>
+                        <p class="purchase-description">
+                            <%= purchase.product.description.substring(0, 150) %>...
+                        </p>
+                    </div>
+                    <div class="purchase-price">
+                        <div class="price-label">Paid</div>
+                        <div class="price-amount">$<%= purchase.price.toFixed(2) %></div>
+                    </div>
+                    <div class="purchase-actions">
+                        <a href="/products/<%= purchase.product._id %>" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-eye"></i>
+                            View Product
+                        </a>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+
+        <div class="purchases-summary">
+            <div class="summary-card">
+                <h3>Purchase Summary</h3>
+                <div class="summary-stat">
+                    <span class="stat-number"><%= purchases.length %></span>
+                    <span class="stat-label">Total Purchases</span>
+                </div>
+                <div class="summary-stat">
+                    <span class="stat-number">$<%= purchases.reduce((total, purchase) => total + purchase.price, 0).toFixed(2) %></span>
+                    <span class="stat-label">Total Spent</span>
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>
