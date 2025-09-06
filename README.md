@@ -176,7 +176,19 @@ SESSION_SECRET=your_session_secret_here
 ## 🎬 Demo Video
 
 Check out the live demo of EcoFinds in action:
-[odooXNMIT.webm](https://github.com/user-attachments/assets/0c72862a-7d68-4485-888c-770acec5e351)
+
+
+https://github.com/user-attachments/assets/45a5ae0c-6e4a-47bd-b966-257f3524e109
+
+
+
+
+https://github.com/user-attachments/assets/5e0bb5e8-63f9-4a26-9c53-4514b47c2c8a
+
+
+
+https://github.com/user-attachments/assets/4691f79c-8f90-4211-b0ca-d84211f8de71
+
 
 
 <video width="640" height="360" controls>
